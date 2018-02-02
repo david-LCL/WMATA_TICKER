@@ -4,7 +4,8 @@ from pywmata import Wmata
 #SERIALPORT = "5" # this is my USB serial port YMMV
 #remember there is a max query from web per time
 API_KEY = '' #your API KEY goes here
-RAIL_STOP_ID = ''#your stop goes here
+RAIL_STOP_ID = ''#your rail stop goes here
+BUS_STOP_ID = ''#your bus stop goes here
 def fetchTrain():
         api = Wmata('API_KEY')
         pentagonList = api.rail_predictions('RAIL_STOP_ID')
@@ -23,7 +24,7 @@ def fetchTrain():
 def fetchBus():
         print "running"
         api = Wmata('API_KEY')
-        busList = api.bus_schedule_by_stop('6000263') #use nextbus to find stop id
+        busList = api.bus_schedule_by_stop(BUS_STOP_ID) #use nextbus to find stop id
         print "got bus list \n"
         i = 0
         return busList
